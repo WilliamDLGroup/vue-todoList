@@ -25,6 +25,7 @@
 		},
 		mounted: function () {
 			this.$refs.headerInput.focus();
+			console.log(this.todos.length)
 		},
 		computed: {
 			// 计算属性的 getter
@@ -41,6 +42,12 @@
 						break;
 				}
 			},
+			itemToBeDoneLeft(){
+				return this.todos.filter(e=>e.completed==false).length
+			},
+			itemCompleted(){
+				return this.todos.filter(e=>e.completed).length
+			}
 		},
 
 		methods: {
